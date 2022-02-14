@@ -1,0 +1,27 @@
+﻿@model SaleCodeModel
+@{
+    ViewData["Title"] = "Main Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Sale code generator</h1>
+</div>
+
+@using (Html.BeginForm("Generate", "Home", FormMethod.Post))
+{
+    @Html.LabelFor(s => s.Lenght)
+    @Html.TextBoxFor(s => s.Lenght)
+
+    @Html.LabelFor(s => s.Quantity)
+    @Html.TextBoxFor(s => s.Quantity)
+
+    <input type="submit" class="btn btn-primary" value="Generate" />
+}
+
+
+<ol>
+    @foreach (var role in Model.CodeArray)
+    {
+        <li>@role</li>
+    }
+</ol>
